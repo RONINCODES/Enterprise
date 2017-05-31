@@ -17,6 +17,8 @@ class Replicator
   def replicate(recipe)
     @recipe = recipe
     retrieve_glass
+    puts @enterprise.cupboard.shelf
+    puts "++++++++++++++++++++++++++++"
     transport_ingredients_to_glass
     mix
     adjust_temperature
