@@ -17,12 +17,19 @@ class Replicator
   def replicate(recipe)
     @recipe = recipe
     retrieve_glass
+    puts "++++++++++++++++++++++++"
+    puts glass_in_tummy
+    transport_ingredients_to_glass
+    puts "------------------------"
+    puts glass_in_tummy
     mix
     adjust_temperature
     transport_glass_to_replicator_plate
   end
 
   def retrieve_glass
+    puts "_+_+_+_+_+_+_+_+_+_+_+__+_+_"
+    puts @enterprise.transporter.connect_to_power
     @enterprise.transporter.energize(obj: @enterprise.cupboard.find_glass, from: @enterprise.cupboard.shelf, to: @tummy)
   end
 
