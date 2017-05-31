@@ -1,3 +1,4 @@
+
 class Replicator
 
   attr_reader :plate
@@ -19,7 +20,11 @@ class Replicator
     retrieve_glass
     transport_ingredients_to_glass
     mix
+    puts glass_in_tummy
     adjust_temperature
+    puts "================="
+    puts glass_in_tummy
+
     transport_glass_to_replicator_plate
   end
 
@@ -32,6 +37,7 @@ class Replicator
   end
 
   def transport_ingredients_to_glass
+
     return unless glass_in_tummy
 
     @recipe.ingredients.each do |ingredient_name|
@@ -55,7 +61,8 @@ class Replicator
     desired_temperature = @recipe.temperature
     maximum_adjustments_allowed = 50
     number_of_adjustments = 0
-
+    puts '=============='
+    puts glass_in_reactor_core.temperature
     while glass_in_reactor_core.temperature != desired_temperature &&
           number_of_adjustments < maximum_adjustments_allowed
 
@@ -68,12 +75,17 @@ class Replicator
       number_of_adjustments += 1
 
     end
+   puts '++++++++++++++++++++++'
+    puts @enterprise.transporter.connect_to_power
+    puts "+++++++++++++++++++++++++++++++++++++"
 
     @enterprise.transporter.energize(obj: glass_in_reactor_core, from: @enterprise.reactor.core, to: @tummy)
 
   end
 
   def transport_glass_to_replicator_plate
+    puts "hello there"
+    puts glass_in_tummy
     @enterprise.transporter.energize(obj: glass_in_tummy, from: @tummy, to: @plate)
   end
 
