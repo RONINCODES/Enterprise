@@ -1,3 +1,4 @@
+
 class Reactor
 
   attr_reader :core, :on

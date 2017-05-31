@@ -1,3 +1,4 @@
+
 class Replicator
 
   attr_reader :plate
@@ -32,6 +33,7 @@ class Replicator
   end
 
   def transport_ingredients_to_glass
+
     return unless glass_in_tummy
 
     @recipe.ingredients.each do |ingredient_name|
@@ -49,6 +51,7 @@ class Replicator
 
   def adjust_temperature
     return unless glass_in_tummy
+
 
     glass_in_reactor_core = @enterprise.transporter.energize(obj: glass_in_tummy, from: @tummy, to: @enterprise.reactor.core)
 
@@ -74,7 +77,6 @@ class Replicator
   end
 
   def transport_glass_to_replicator_plate
-    return
     @enterprise.transporter.energize(obj: glass_in_tummy, from: @tummy, to: @plate)
   end
 
